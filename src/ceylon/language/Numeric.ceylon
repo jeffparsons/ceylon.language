@@ -6,12 +6,8 @@ doc "Abstraction of numeric types supporting addition,
 see (Integer, Float, Comparable)
 by "Gavin"
 shared interface Numeric<Other> of Other
-        satisfies Summable<Other> & Invertable<Other>
+        satisfies Summable<Other> & Subtractable<Other,Other> & Invertable<Other>
         given Other satisfies Numeric<Other> {
-
-    doc "The difference between this number and the given 
-         number."
-    shared formal Other minus(Other other);
 
     doc "The product of this number and the given number."
     shared formal Other times(Other other);

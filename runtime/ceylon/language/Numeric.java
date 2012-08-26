@@ -13,14 +13,12 @@ import com.redhat.ceylon.compiler.java.metadata.TypeParameters;
 @TypeParameters(@TypeParameter(value = "Other",
     		satisfies="ceylon.language.Numeric<Other>"))
 @SatisfiedTypes({"ceylon.language.Summable<Other>",
-		         "ceylon.language.Invertable<Other>"})
+                 "ceylon.language.Subtractable<Other, Other>>",
+                 "ceylon.language.Invertable<Other>"})
 @CaseTypes(of = "Other")
 public interface Numeric<Other extends Numeric<Other>> 
-    extends Summable<Other>, Invertable<Other> {
+    extends Summable<Other>, Subtractable<Other,Other>, Invertable<Other> {
 	
-    @Annotations(@Annotation("formal"))
-	public Other minus(@Name("other") Other number);
-    
     @Annotations(@Annotation("formal"))
     public Other times(@Name("other") Other number);
     
